@@ -1,0 +1,6 @@
+(function(){var COOCKIE_LOCAL_KEY="_coockie_popup_was_shown_";function initAccept(){var root=document.querySelector('.c-accept-message');var hasShown=window.localStorage.getItem(COOCKIE_LOCAL_KEY);if(root){var paper=root.querySelector('.c-accept-message__paper');if(hasShown&&hasShown==="1"){closeMessage();}else{setPosition(root);showMessage();}
+var close=root.querySelector(".c-next");close.addEventListener('click',closeMessage)}
+function closeMessage(){if(root){root.classList.add("is-hidden");window.localStorage.setItem(COOCKIE_LOCAL_KEY,"1");var parent=root.parentNode;if(parent){parent.removeChild(root);}}}
+function showMessage(){if(root){root.classList.remove("is-hidden");root.classList.add("is-active");}}}
+function setPosition(message){message.style.height=window.innerHeight+"px";window.addEventListener('resize',function(){if(message){message.style.height=window.innerHeight+"px";}})}
+document.addEventListener("DOMContentLoaded",function(event){try{initAccept();}catch(e){console.log(e);}});})();
